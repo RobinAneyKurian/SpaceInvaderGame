@@ -1,0 +1,41 @@
+{% load static %}
+{% static 'images' as baseUrl %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'game.css' %}">
+<title>Space Invader</title>
+</head>
+
+<body class="game_home_background_color">
+
+<header>
+    <nav class="navbar navbar-expand-lg game_navbar">
+        <div class="container-fluid">
+          <img src="{{baseUrl}}/{{gamehome.img}}" alt="">
+          <a class="nav-link game_items" href="#">Home</a>
+          <a class="nav-link game_items" href="#">Register</a>
+          <a class="nav-link game_items" href="#">Log in</a>
+        </div>
+    </nav>
+</header>
+
+<div>
+    <div class="game_username">
+        <h4 class="enter_username">Enter your username</h4>
+        <form action="" method="POST">
+            <input class="user_name" type="text" name="username" place="username">
+        </form>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>
