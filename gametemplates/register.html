@@ -1,5 +1,4 @@
 {% load static %}
-{% static 'images' as baseUrl %}
 
 <!DOCTYPE html>
 <html>
@@ -8,34 +7,38 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="{% static 'game.css' %}">
+<link rel="stylesheet" href="{% static 'register.css' %}">
 <title>Space Invader</title>
 </head>
 
-<body class="game_home_background_color">
+<body class="register_page_background_color">
 
-<header>
-    <nav class="navbar navbar-expand-lg game_navbar">
-        <div class="container-fluid">
-          <img src="{{baseUrl}}/{{gamehome.img}}" alt="">
-          <a class="nav-link game_items" href="#">Home</a>
-          <a class="nav-link game_items" href="register">Register</a>
-          <a class="nav-link game_items" href="#">Log in</a>
-        </div>
-    </nav>
-</header>
-<div>
-    <div class="game_username">
-        <h4 class="enter_username">Enter your username</h4>
-        <form action="" method="POST">
+    <header>
+        <nav class="navbar navbar-expand-lg register_navbar">
+            <div class="container">
+              <img src="{{baseUrl}}/{{gamehome.img}}" alt="">
+              <a class="nav-link register_items" href="home">Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="register_box">
+        <h3 class="register_account">Register your account</h3>
+        <form action="register" method="post">
             {% csrf_token %}
-            <input class="user_name" type="text" name="username" place="username">
+            <input type="text" name="username" placeholder="Username"><br>
+            <br><input type="email" name="email" placeholder="Email address"><br>
+            <br><button class="register_button">Submit</button><br>
+            <br>{% for message in messages %}
+            <p class="error_message">{{message}}</p>
+            {% endfor %}
         </form>
+        
     </div>
-</div>
+
+
 
 
 
 </body>
-
 </html>
